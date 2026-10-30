@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Palette taken from the dyes of a Persian rug: undyed wool, lac red,
+   indigo, weld-and-madder gold, and the warm grey of a worn foundation. */
+@theme {
+  --color-wool: #F4EEE2;
+  --color-wool-deep: #E7DDCA;
+  --color-lac: #6B1A26;
+  --color-lac-soft: #8C2A37;
+  --color-indigo: #1B2440;
+  --color-saffron: #A88A52;
+  --color-ash: #7D736A;
+  --color-ink: #241C18;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
+  --font-fa: var(--font-vazir), "Vazirmatn", Tahoma, sans-serif;
+}
+
+@layer base {
+  html { background: var(--color-wool); color: var(--color-ink); }
+  body { font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  html[lang="fa"] body { font-family: var(--font-fa); line-height: 1.85; }
+  html[lang="fa"] .font-display { font-family: var(--font-fa); font-weight: 700; letter-spacing: 0; }
+  :focus-visible { outline: 2px solid var(--color-lac); outline-offset: 3px; }
+  input, select, textarea { font: inherit; }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-sm border border-ash/40 bg-white/70 px-3 py-2 text-ink placeholder:text-ash/70 focus:border-lac focus:outline-none;
+  }
+  .label { @apply mb-1 block text-sm text-ash; }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-lac px-5 py-2.5 text-wool transition-colors hover:bg-lac-soft disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-ink/25 px-5 py-2.5 text-ink transition-colors hover:border-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
