@@ -100,7 +100,10 @@
     "email": "Email",
     "send": "Email me a link",
     "sent": "Check your inbox for the sign-in link.",
-    "demo": "Sign-in is available once the database is connected. You are viewing sample data."
+    "demo": "Sign-in is available once the database is connected. You are viewing sample data.",
+    "linkError": "This sign-in link no longer works (already used, expired, or opened in another browser). Request a new link and open only the newest email.",
+    "rateLimited": "Too many sign-in emails were sent. Please try again in about an hour.",
+    "sendFailed": "We could not send the sign-in link. Please try again."
   },
   "seller": {
     "title": "Seller dashboard",

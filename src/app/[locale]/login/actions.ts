@@ -4,7 +4,7 @@ import { z } from "zod";
 import { env } from "@/lib/env";
 import { supabaseServer } from "@/lib/supabase/server";
 
-export type LoginState = { status: "idle" | "sent" | "error" };
+export type LoginState = { status: "idle" | "sent" | "error" | "rate" };
 
 export async function sendMagicLink(_prev: LoginState, form: FormData): Promise<LoginState> {
   const email = z.email().safeParse(form.get("email"));
@@ -17,5 +17,9 @@ export async function sendMagicLink(_prev: LoginState, form: FormData): Promise<
     email: email.data,
     options: { emailRedirectTo: `${env.siteUrl}/auth/callback?next=/${locale}${next === "/" ? "" : next}` },
   });
-  return { status: error ? "error" : "sent" };
+  if (error) {
+    console.error("signInWithOtp failed", error.status, error.message);
+    return { status: error.status === 429 ? "rate" : "error" };
+  }
+  return { status: "sent" };
 }
