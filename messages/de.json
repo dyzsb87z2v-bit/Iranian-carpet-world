@@ -100,7 +100,10 @@
     "email": "E-Mail",
     "send": "Link senden",
     "sent": "Prüfen Sie Ihr Postfach auf den Anmeldelink.",
-    "demo": "Die Anmeldung ist verfügbar, sobald die Datenbank verbunden ist. Sie sehen Beispieldaten."
+    "demo": "Die Anmeldung ist verfügbar, sobald die Datenbank verbunden ist. Sie sehen Beispieldaten.",
+    "linkError": "Dieser Anmeldelink funktioniert nicht mehr (bereits benutzt, abgelaufen oder in einem anderen Browser geöffnet). Fordern Sie einen neuen Link an und öffnen Sie nur die neueste E-Mail.",
+    "rateLimited": "Es wurden zu viele Anmelde-E-Mails gesendet. Bitte versuchen Sie es in etwa einer Stunde erneut.",
+    "sendFailed": "Der Anmeldelink konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
   },
   "seller": {
     "title": "Händlerbereich",
